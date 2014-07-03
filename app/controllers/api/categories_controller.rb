@@ -1,5 +1,5 @@
 class API::CategoriesController < API::BaseController
   def index
-    render json: Category.all
+    render json: Category.includes(:posts)
   end
 end

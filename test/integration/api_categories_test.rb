@@ -15,6 +15,8 @@ class APICategoriesTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
-    assert_equal Category.count, parse_json(response.body).fetch(:categories).size
+
+    categories = parse_json(response.body)
+    assert_equal Category.count, categories.fetch(:categories).size
   end
 end
