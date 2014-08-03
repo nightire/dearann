@@ -16,3 +16,6 @@
 /tmp
 
 /bin
+
+# Ignore attachments
+/public/entity/

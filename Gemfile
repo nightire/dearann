@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~>4.1'
 gem 'pg'
 gem 'active_model_serializers'
-# gem 'jbuilder', '~> 2.0'
-# gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'carrierwave'
 
 group :development do
   gem 'hirb'
@@ -28,4 +27,4 @@ end
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
