@@ -1,0 +1,32 @@
+.post {
+  .posts & {
+    position:      relative;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed $thistle;
+    padding-left:  6.4rem;
+    &:first-of-type {
+      margin-top:  1.5rem;
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
+    time {
+      position:    absolute;
+      top:         .5rem;
+      left:        1rem;
+      color:       $slate;
+      font-size:   1.6rem;
+      font-weight: 700;
+    }
+    footer {
+      margin:      1rem 0;
+    }
+  }
+  h1 {
+    margin: 0;
+    font:   700 2.4rem/1.5em $serif;
+  }
+}
+
+.posts.new {
+}

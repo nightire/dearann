@@ -1,0 +1,93 @@
+header[role=banner] {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  min-height: $banner-height;
+  width: 100%;
+  background-color: $banner-bg;
+  @include background(linear-gradient($banner-bg-top, $banner-bg));
+  font-size: 1.6rem;
+
+  .brand {
+    @include float-left;
+    padding: 13px 60px;
+    @include replace-text($brand-image);
+    @include transition(background .2s linear .1s);
+
+    &:hover { @include replace-text($brand-image-hover); }
+  }
+
+  .nav-toggle {
+    @extend %button;
+    @extend %button-shadow-inverse;
+
+    display: none;
+    @include breakpoint(max-width 768px) {
+      display: block;
+    }
+    position: absolute;
+    top: 7px;
+    right: 30px;
+    border: 1px solid $indigo;
+    @include background-image(
+      linear-gradient(transparentize($thistle, .75),
+                      transparentize($thistle, 1))
+    );
+    color: $thistle;
+    text-shadow: 0 1px 0 transparentize(white, .9);
+
+    &:hover {
+      @include background-image(
+        linear-gradient(transparentize($thistle, .75),
+                        transparentize($thistle, .9))
+      );
+      color: white;
+    }
+    &:active {
+      @include background-image(
+        linear-gradient(transparentize($thistle, 1),
+                        transparentize($thistle, .75))
+      );
+    }
+  }
+}
+
+nav[role=navigation] {
+  @include breakpoint(max-width 768px) {
+    clear: left;
+    padding: { left: 30px; right: 30px }
+    &.hidden { max-height: 0; }
+  }
+  @include breakpoint(min-width 769px) {
+    @include float-right;
+    padding-right: 30px;
+  }
+
+  max-height: 50px;
+  @include breakpoint(max-width 531px) { max-height: 300px; }
+
+  overflow: hidden;
+  @include transition(max-height .3s ease-out .1s);
+
+  a {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 13px 0;
+    @include breakpoint(max-width 531px) {
+      display: block;
+      margin-right: 0;
+      text-align: center;
+    }
+
+    color: $thistle;
+    text-decoration: none;
+
+    &:last-of-type { margin-right: 0; }
+    &:hover { color: white; }
+    @include breakpoint(max-width 531px) {
+      &:hover { background-color: transparentize(black, .8); }
+    }
+    &.active { color: $coral; }
+    &.active:hover { text-shadow: 0 0 2px transparentize(white, .5); }
+  }
+}

@@ -1,0 +1,46 @@
+header[role=banner],
+footer[role=contentinfo] {
+  @include container(100%);
+}
+
+main[role=main] {
+  @include container(1600px);
+  padding-top: $banner-height;
+  background-color: white;
+  font-size: 1.4rem;
+}
+
+.timeline,
+.categories {
+  @include span(6);
+}
+
+@include susy-breakpoint($mobile, layout(1 1/5)) {
+  .timeline, .categories {
+    @include span(1);
+  }
+}
+
+.posts {
+  @include span(8);
+  &.new {
+    @include susy-breakpoint($over, layout(15 1/3)) {
+      @include span(9);
+      @include push(3);
+    }
+    @include susy-breakpoint($desktop, layout(15 1/3)) {
+      @include span(9);
+      @include push(3);
+    }
+    @include susy-breakpoint($tablet, layout(12 1/4)) {
+      @include span(10);
+      @include push(1);
+    }
+  }
+}
+
+@include susy-breakpoint($mobile, layout(1 1/5)) {
+  .posts {
+    @include span(1);
+  }
+}

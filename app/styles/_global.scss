@@ -1,0 +1,50 @@
+html {
+  font: 62.5%/1.5 $sans-serif;
+}
+
+body[role=application] {
+  background-color: $indigo;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  @include transition(color .2s ease-out, text-shadow .2s ease-out);
+  &:hover {
+    color: $link-hover;
+    text-decoration: underline;
+    text-decoration: underline dashed $thistle;
+    @include transition-timing-function(ease-in);
+  }
+}
+
+form {
+  label {
+    font-weight: 800;
+  }
+  input {
+    width: 100%;
+    padding: .5rem;
+  }
+  select {
+    font-size: 1.6rem;
+  }
+  button {
+    @extend %button;
+    @extend %button-shadow;
+  }
+  .form-group {
+    margin-bottom: 2rem;
+  }
+}
+
+.invisible {
+  position: absolute;
+  overflow: hidden;
+  border: 0;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0,0,0,0);
+}

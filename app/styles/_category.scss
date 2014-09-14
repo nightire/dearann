@@ -1,0 +1,36 @@
+$categories: parlor cuisine bedroom study balcony;
+
+.categories ul[role=menu] {
+  @extend %initial-list;
+
+  li[role=menuitem] a {
+    display: block;
+    margin-bottom: 10px;
+    min-height: 100px;
+    opacity: .5;
+    @include transition(min-height .3s linear .2s, opacity .3s ease-out .2s);
+
+    @each $category in $categories {
+      &.#{$category} {
+        background: url('images/#{$category}.jpg') no-repeat transparent;
+        background-position: center 50%;
+        background-size: 120%;
+      }
+    }
+
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 gray, 2px 2px 0 black;
+
+    &:hover {
+      min-height: 200px;
+      opacity: 1;
+    }
+  }
+}
+
+.categories .all {
+  @include float-right;
+  margin-bottom: 8px;
+  @extend %right-single-arrow-underline;
+}

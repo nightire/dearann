@@ -1,0 +1,38 @@
+.standout {
+  background: url('images/standout.jpg') fixed no-repeat transparent;
+  background-position: center 30%;
+  background-size: 110%;
+  @include breakpoint($mobile) {
+    height: 320px;
+    background-position: center 15%;
+    background-size: 150%;
+  }
+  @include breakpoint($tablet) {
+    height: 540px;
+    background-position: center -30%;
+    background-size: 125%;
+  }
+  @include breakpoint($desktop) {
+    height: 720px;
+    background-size: cover
+  }
+  @include breakpoint($over) {
+    height: 960px;
+    background-position: 70% 40%;
+    background-size: 110%;
+  }
+}
+
+.slogan {
+  position: absolute;
+  margin: 3em auto;
+  width: 100%;
+  max-width: 1600px;
+  color: whitesmoke;
+  font-size: 5em;
+  text-align: center;
+  opacity: .75;
+  @include breakpoint(max-width 979px) { margin-top: 3.5em; font-size: 4em; }
+  @include breakpoint($tablet) { margin-top: 4em; font-size: 3em; }
+  @include breakpoint(max-width 539px) { margin-top: 5em; font-size: 1.5em; }
+}

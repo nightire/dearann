@@ -1,0 +1,75 @@
+%button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: visible;
+  font-size: .9em;
+  line-height: 1;
+  cursor: pointer;
+  @include transition(
+    color .2s ease-out .1s,
+    background-image .2s ease-out .1s
+  );
+
+  &:hover {
+    @include transition-timing-function(ease-in);
+  }
+
+  &::-moz-focus-inner {
+    border: none;
+    padding: 0;
+  }
+
+  &.button {
+    border-radius: 3px;
+    padding: 8px 17px;
+    font-size: 1.4rem;
+  }
+
+  &.primary {
+    border: 1px solid $indigo;
+    @include background-image(
+      linear-gradient(transparentize($indigo, .25), $indigo)
+    );
+    color: $thistle;
+    text-shadow: 0 1px 0 transparentize(white, .9);
+    &:hover {
+      @include background-image(
+        linear-gradient(transparentize($indigo, .33), $indigo)
+      );
+      color: white;
+    }
+    &:active {
+      @include background-image(
+        linear-gradient($indigo, transparentize($indigo, .25))
+      );
+    }
+  }
+}
+
+%button-shadow {
+  @include box-shadow(
+    0 1px 0 0 transparentize(black, .8),
+    0 2px 1px 0 transparentize(black, .9),
+    inset 0 0 1px 0 transparentize(white, .9),
+    inset 0 1px 0 0 transparentize(white, .8)
+  );
+}
+
+%button-shadow-inverse {
+  @include box-shadow(
+    0 1px 0 0 transparentize(white, .8),
+    0 2px 1px 0 transparentize(white, .9),
+    inset 0 0 1px 0 transparentize(black, .8),
+    inset 0 2px 1px 0 transparentize(black, .9)
+  );
+}
+
+%right-single-arrow-underline {
+  &:after { content: ' ⥬'; }
+}
+
+%initial-list {
+  @include reset-box-model;
+  @include reset-list-style;
+}

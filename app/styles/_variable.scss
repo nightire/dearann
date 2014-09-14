@@ -1,0 +1,36 @@
+// Enable SVG support for Opera or IE9
+$experimental-support-for-svg: true;
+
+// Breakpoint
+$breakpoint-to-ems:             true;
+$breakpoint-no-query-fallbacks: true;
+
+$mobile:  max-width 480px;
+$tablet:  481px 768px;
+$desktop: 769px 1440px;
+$over:    min-width 1441px;
+
+// Layout
+$susy: layout(12 1/4 100% inside);
+
+// Font
+$serif:      "Droid Serif", Georgia, "Times New Roman", "Kaiti SC", serif;
+$sans-serif: "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, sans-serif;
+
+// Color Pallete
+$indigo:  #3e1154;
+$thistle: #c5b8cc;
+$slate:   #708090;
+$coral:   #ff7f50;
+$cobalt:  #3d59ab;
+
+// Link
+$link:       $cobalt;
+$link-hover: lighten($link, 10%);
+
+// Banner
+$banner-height:     50px;
+$banner-bg:         $indigo;
+$banner-bg-top:     #522966;
+$brand-image:       url("images/brand.png");
+$brand-image-hover: url("images/brand-hover.png");
