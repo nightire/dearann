@@ -22,7 +22,7 @@ module('验收测试－首页', {
     };
   },
   teardown: function () {
-    // Ember.run(this.app, 'destroy');
+    Ember.run(this.app, 'destroy');
     this.server.shutdown();
   }
 });
@@ -39,12 +39,24 @@ test('页首', function () {
   });
 });
 
-// test('页尾', function () {
-//   expect(1);
-//   visit('/');
+test('海报和标语', function () {
+  expect(2);
+  visit('/');
 
-//   andThen(function () {
-//     var poweredBy = find('p.powered-by').length;
-//     equal(poweredBy, 1, 'Powered By 元素存在');
-//   });
-// });
+  andThen(function () {
+    var standout = find('section.standout').length;
+    var slogan = find('h1.slogan', 'section.standout').text();
+    equal(standout, 1, '海报元素存在');
+    equal(slogan, 'We Are Living In Shanghai', '标语文字正确');
+  });
+});
+
+test('页尾', function () {
+  expect(1);
+  visit('/');
+
+  andThen(function () {
+    var poweredBy = find('p.powered-by').length;
+    equal(poweredBy, 1, 'Powered By 元素存在');
+  });
+});
