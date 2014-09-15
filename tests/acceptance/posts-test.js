@@ -35,14 +35,14 @@ test('面包屑导航', function () {
   visit('posts');
 
   andThen(function () {
-    var breadcrumb = find('div.breadcrumb');
+    var breadcrumb = find('.breadcrumb');
     ok(breadcrumb.text().indexOf('»') === -1, '浏览全部时没有子导航');
   });
 
   visit('posts/?category=parlor');
 
   andThen(function () {
-    var breadcrumb = find('div.breadcrumb');
+    var breadcrumb = find('.breadcrumb');
     ok(breadcrumb.text().indexOf('»') !== -1, '按分类浏览时有子导航');
   });
 });
@@ -52,14 +52,14 @@ test('列表', function () {
   visit('/posts');
 
   andThen(function () {
-    var articles = find('article.post', 'section.posts');
+    var articles = find('._post', '.posts');
     equal(articles.length, 3, '全部文章列出');
 
     articles.each(function (index, article) {
-      var datetime = find('time', article);
-      equal(datetime.text().indexOf('日'), 4, '每篇文章都有发表日期');
+      var datetime = find('._post-date', article);
+      equal(datetime.text().indexOf('日'), 11, '每篇文章都有发表日期');
 
-      var category = find('footer > a', article);
+      var category = find('._post-meta > a', article);
       equal(category.attr('href').indexOf('?'), 6, '每篇文章都有所属分类的链接');
     });
   });
