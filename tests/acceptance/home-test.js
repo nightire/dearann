@@ -1,15 +1,13 @@
+/* global Pretender */
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import postsFixture from '../fixtures/posts';
 import categoriesFixture from '../fixtures/categories';
 
-var app;
-var server;
-
-module('集成测试－首页', {
+module('验收测试－首页', {
   setup: function () {
-    app = startApp();
-    server = new Pretender(function () {
+    this.app = startApp();
+    this.server = new Pretender(function () {
       this.get('/posts', function (request) {
         return [200, { "Content-Type": "application/json" }, postsFixture];
       });
@@ -19,13 +17,13 @@ module('集成测试－首页', {
       });
     });
 
-    server.prepareBody = function (body) {
+    this.server.prepareBody = function (body) {
       return body ? JSON.stringify(body) : '{ "error": "record(s) not found" }';
     };
   },
   teardown: function () {
-    Ember.run(app, 'destroy');
-    server.shutdown();
+    // Ember.run(this.app, 'destroy');
+    this.server.shutdown();
   }
 });
 
@@ -41,12 +39,12 @@ test('页首', function () {
   });
 });
 
-test('页尾', function () {
-  expect(1);
-  visit('/');
+// test('页尾', function () {
+//   expect(1);
+//   visit('/');
 
-  andThen(function () {
-    var poweredBy = find('p.powered-by').length;
-    equal(poweredBy, 1, 'Powered By 元素存在');
-  });
-});
+//   andThen(function () {
+//     var poweredBy = find('p.powered-by').length;
+//     equal(poweredBy, 1, 'Powered By 元素存在');
+//   });
+// });
