@@ -1,19 +1,19 @@
-/* global Pretender */
+/* global Pretender, moment */
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
-import postsFixture from '../fixtures/posts';
-import categoriesFixture from '../fixtures/categories';
+import postFixtures from '../fixtures/posts';
+import categoryFixtures from '../fixtures/categories';
 
 module('验收测试－首页', {
   setup: function () {
     this.app = startApp();
     this.server = new Pretender(function () {
       this.get('/posts', function (request) {
-        return [200, { "Content-Type": "application/json" }, postsFixture];
+        return [200, { "Content-Type": "application/json" }, postFixtures];
       });
 
       this.get('/categories', function (request) {
-        return [200, { "Content-Type": "application/json" }, categoriesFixture];
+        return [200, { "Content-Type": "application/json" }, categoryFixtures];
       });
     });
 
@@ -48,6 +48,16 @@ test('海报和标语', function () {
     var slogan = find('h1.slogan', 'section.standout').text();
     equal(standout, 1, '海报元素存在');
     equal(slogan, 'We Are Living In Shanghai', '标语文字正确');
+  });
+});
+
+test('时间线', function () {
+  expect(1);
+  visit('/');
+  andThen(function () {
+    var today = find('h3', 'section.timeline').text();
+    var currentDate = moment().format('LLL');
+    equal(today, currentDate, '正确获取当天日期和时间');
   });
 });
 

@@ -1,0 +1,12 @@
+<header role="heading">
+  <h3>{{view.today}}</h3>
+  <h4>今天将要进行的活动有：</h4>
+</header>
+<dl>
+  {{#each posts}}
+  <dt>{{open_at}} {{time-formatter open_at 'a hh:mm'}} 至 {{time-formatter close_at 'a hh:mm'}}</dt>
+  <dd>{{link-to title '' this title=title}}</dd>
+  {{else}}
+  <dt>今天没有活动哦～</dt>
+  {{/each}}
+</dl>
