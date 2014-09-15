@@ -54,10 +54,21 @@ test('海报和标语', function () {
 test('时间线', function () {
   expect(1);
   visit('/');
+
   andThen(function () {
     var today = find('h3', 'section.timeline').text();
     var currentDate = moment().format('LLL');
     equal(today, currentDate, '正确获取当天日期和时间');
+  });
+});
+
+test('分类列表', function () {
+  expect(1);
+  visit('/');
+
+  andThen(function () {
+    var categories = find('li', 'section.categories').length;
+    equal(categories, 2, '分类列表数目数量正确');
   });
 });
 
