@@ -1,18 +1,20 @@
 <section class="posts">
-  <div class="breadcrumb">
-    {{link-to '全部' 'posts' (query-params category='')}}
-    {{#if currentCategory}} &raquo; {{currentCategory.name}} {{/if}}
-  </div>
   {{#each posts}}
-  <article class="post" role="article">
-    <h1>{{link-to title 'post' this}}</h1>
-    <time {{bind-attr datetime=createdAt}}>{{time-formatter createdAt 'MMMDo'}}</time>
-    <footer>
+  <div class="_post">
+    <h1 class="_post-title">
+      {{link-to title 'post' this}}
+    </h1>
+
+    <time class="_post-date" {{bind-attr datetime=createdAt}}>
+      {{time-formatter createdAt 'MMMDo'}}
+    </time>
+
+    <div class="_post-meta">
       {{#with category}}
       属于：{{link-to name 'posts' (query-params category=urlName)}}
       {{/with}}
-    </footer>
-  </article>
+    </div>
+  </div>
   {{else}}
   <h2>还没有文章哦～</h2>
   {{/each}}

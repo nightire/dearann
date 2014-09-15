@@ -1,0 +1,6 @@
+<section class="breadcrumb">
+  {{link-to '全部' 'posts' (query-params category='')}}
+  {{#if currentCategory}} &raquo; {{currentCategory.name}} {{/if}}
+</section>
+
+{{outlet}}

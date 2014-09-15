@@ -2,18 +2,12 @@ import Ember from 'ember';
 
 var computed = Ember.computed;
 
-export default Ember.Controller.extend({
-  queryParams: ['category'],
-  category: '',
+export default Ember.ArrayController.extend({
+  needs: ['posts'],
 
-  currentCategory: computed('category', function () {
-    return this.get('model.categories').
-      filterBy('urlName', this.get('category')).get('firstObject');
-  }),
-
-  posts: computed('category', function () {
-    var posts = this.get('model.posts');
-    var category = this.get('category');
+  posts: computed('controllers.posts.category', function () {
+    var posts = this.get('model');
+    var category = this.get('controllers.posts.category');
     return category ? posts.filterBy('category.urlName', category) : posts;
   })
 });
