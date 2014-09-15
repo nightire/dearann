@@ -6,7 +6,7 @@
 
   <nav role="navigation" {{bind-attr class=view.menuIsHidden:hidden}}>
     {{#each categories}}
-      {{link-to name '' (query-params category=urlName) title=name}}
+      {{link-to name 'posts' (query-params category=urlName) title=name}}
     {{/each}}
 
     <!-- <span class="vertical-divider" role="separator"></span>

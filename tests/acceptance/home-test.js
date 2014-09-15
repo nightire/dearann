@@ -32,10 +32,10 @@ test('页首', function () {
   visit('/');
 
   andThen(function () {
-    var brand = find('a.brand').length;
-    var categoriesLinks = find('a', 'nav[role=navigation]').length;
-    equal(brand, 1, 'LOGO 元素存在');
-    equal(categoriesLinks, 2, '分类导航链接存在');
+    var brand = find('a.brand');
+    var navLinks = find('a', 'nav[role=navigation]');
+    equal(brand.length, 1, 'LOGO 元素存在');
+    equal(navLinks.length, 2, '分类导航链接存在');
   });
 });
 
@@ -44,10 +44,10 @@ test('海报和标语', function () {
   visit('/');
 
   andThen(function () {
-    var standout = find('section.standout').length;
-    var slogan = find('h1.slogan', 'section.standout').text();
-    equal(standout, 1, '海报元素存在');
-    equal(slogan, 'We Are Living In Shanghai', '标语文字正确');
+    var standout = find('section.standout');
+    var slogan = find('h1.slogan', 'section.standout');
+    equal(standout.length, 1, '海报元素存在');
+    equal(slogan.text(), 'We Are Living In Shanghai', '标语文字正确');
   });
 });
 
@@ -56,9 +56,9 @@ test('时间线', function () {
   visit('/');
 
   andThen(function () {
-    var today = find('h3', 'section.timeline').text();
+    var today = find('h3', 'section.timeline');
     var currentDate = moment().format('LLL');
-    equal(today, currentDate, '正确获取当天日期和时间');
+    equal(today.text(), currentDate, '正确获取当天日期和时间');
   });
 });
 
@@ -67,8 +67,8 @@ test('分类列表', function () {
   visit('/');
 
   andThen(function () {
-    var categories = find('li', 'section.categories').length;
-    equal(categories, 2, '分类列表数目数量正确');
+    var categories = find('li', 'section.categories');
+    equal(categories.length, 2, '分类列表数目数量正确');
   });
 });
 
@@ -77,7 +77,7 @@ test('页尾', function () {
   visit('/');
 
   andThen(function () {
-    var poweredBy = find('p.powered-by').length;
-    equal(poweredBy, 1, 'Powered By 元素存在');
+    var poweredBy = find('p.powered-by');
+    equal(poweredBy.length, 1, 'Powered By 元素存在');
   });
 });
