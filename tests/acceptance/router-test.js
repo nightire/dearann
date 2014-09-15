@@ -20,7 +20,7 @@ test('首页', function () {
   });
 });
 
-test('全部文章', function () {
+test('全部文章的列表', function () {
   expect(2);
   visit('/posts');
 
@@ -30,7 +30,7 @@ test('全部文章', function () {
   });
 });
 
-test('按分类筛选的文章', function () {
+test('按分类筛选的文章列表', function () {
   expect(2);
   visit('/posts?category=test');
 
@@ -38,4 +38,15 @@ test('按分类筛选的文章', function () {
     equal(currentPath(), 'posts.index');
     equal(currentURL(), '/posts?category=test');
   });
+});
+
+test('单篇文章', function () {
+  expect(2);
+  visit('/posts/54');
+
+  andThen(function () {
+    var post_id = this.app.get('Router.router.state.params.post.post_id');
+    equal(post_id, '54');
+    equal(currentURL(), '/posts/54');
+  }.bind(this));
 });
