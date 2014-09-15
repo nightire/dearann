@@ -1,0 +1,15 @@
+<header role="banner">
+  {{link-to 'Dear Ann' 'application' class='brand' title='Dear Ann'}}
+
+  <button type="button" class="button nav-toggle"
+    {{action "toggleMenu" target="view"}}>菜单</button>
+
+  <nav role="navigation" {{bind-attr class=view.menuIsHidden:hidden}}>
+    {{#each categories}}
+      {{link-to name '' (query-params category=urlName) title=name}}
+    {{/each}}
+
+    <!-- <span class="vertical-divider" role="separator"></span>
+    <a href="" role="button" class="button">登录</a> -->
+  </nav>
+</header>

@@ -11,6 +11,8 @@ var options = {
 
 var app = new EmberApp(options);
 
+app.import('bower_components/moment/min/moment-with-locales.js');
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
