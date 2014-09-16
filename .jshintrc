@@ -4,6 +4,7 @@
     "window": true,
     "-Promise": true,
     "moment": true,
+    "CKEDITOR": true,
     "DearannENV": true
   },
   "browser" : true,
