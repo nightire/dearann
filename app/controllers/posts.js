@@ -3,6 +3,8 @@ import Ember from 'ember';
 var computed = Ember.computed;
 
 export default Ember.ArrayController.extend({
+  withBreadCrumb: true,
+
   queryParams: ['category'],
   category: '',
 

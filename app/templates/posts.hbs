@@ -1,4 +1,5 @@
 <section class="toolbar">
+  {{#if withBreadCrumb}}
   <div class="breadcrumb">
     {{link-to '全部' 'posts' (query-params category='')}}
     {{#if currentCategory}} &raquo; {{currentCategory.name}} {{/if}}
@@ -7,6 +8,7 @@
     ＋&nbsp;新建
     {{/link-to}}
   </div>
+  {{/if}}
 </section>
 
 {{outlet}}
