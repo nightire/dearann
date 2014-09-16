@@ -1,6 +1,4 @@
-$item: "_post";
-
-.posts .#{$item} {
+.posts ._post {
   position:      relative;
   margin-bottom: 1.5rem;
   border-bottom: 1px dashed $thistle;
@@ -11,11 +9,10 @@ $item: "_post";
   &:last-of-type {
     border-bottom: none;
   }
-  .#{$item}-title {
-    margin: 0;
-    font:   700 2.4rem/1.5em $serif;
+  &-title {
+    @extend %title-in-list;
   }
-  .#{$item}-date {
+  &-date {
     position:    absolute;
     top:         .5rem;
     left:        1.2rem;
@@ -23,7 +20,16 @@ $item: "_post";
     font-size:   1.6rem;
     font-weight: 700;
   }
-  .#{$item}-meta {
+  &-meta {
     margin: 1rem 0;
+  }
+}
+
+.post {
+  &-title {
+    @extend %title;
+    font-size: 3.2rem;
+  }
+  &-body {
   }
 }

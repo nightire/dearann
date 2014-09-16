@@ -1,6 +1,12 @@
-<section class="breadcrumb">
-  {{link-to '全部' 'posts' (query-params category='')}}
-  {{#if currentCategory}} &raquo; {{currentCategory.name}} {{/if}}
+<section class="toolbar">
+  <div class="breadcrumb">
+    {{link-to '全部' 'posts' (query-params category='')}}
+    {{#if currentCategory}} &raquo; {{currentCategory.name}} {{/if}}
+
+    {{#link-to 'posts.new' (query-params category='') class='_new'}}
+    ＋&nbsp;新建
+    {{/link-to}}
+  </div>
 </section>
 
 {{outlet}}

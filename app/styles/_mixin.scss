@@ -1,11 +1,11 @@
 %button {
-  border: 0;
-  padding: 0;
+  border:           0;
+  padding:          0;
   background-color: transparent;
-  overflow: visible;
-  font-size: .9em;
-  line-height: 1;
-  cursor: pointer;
+  overflow:         visible;
+  font-size:        .9em;
+  line-height:      1;
+  cursor:           pointer;
   @include transition(
     color .2s ease-out .1s,
     background-image .2s ease-out .1s
@@ -16,14 +16,14 @@
   }
 
   &::-moz-focus-inner {
-    border: none;
+    border:  none;
     padding: 0;
   }
 
   &.button {
     border-radius: 3px;
-    padding: 8px 17px;
-    font-size: 1.4rem;
+    padding:       8px 17px;
+    font-size:     1.4rem;
   }
 
   &.primary {
@@ -31,7 +31,7 @@
     @include background-image(
       linear-gradient(transparentize($indigo, .25), $indigo)
     );
-    color: $thistle;
+    color:       $thistle;
     text-shadow: 0 1px 0 transparentize(white, .9);
     &:hover {
       @include background-image(
@@ -65,11 +65,32 @@
   );
 }
 
+%initial-list {
+  @include reset-box-model;
+  @include reset-list-style;
+}
+
+%title {
+  font: 700 2.4rem/1.5em $serif;
+}
+
+%title-in-list {
+  @extend %title;
+  margin: 0;
+}
+
+// Others
 %right-single-arrow-underline {
   &:after { content: ' ⥬'; }
 }
 
-%initial-list {
-  @include reset-box-model;
-  @include reset-list-style;
+%invisible {
+  position: absolute;
+  overflow: hidden;
+  border: 0;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0,0,0,0);
 }

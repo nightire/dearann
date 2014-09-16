@@ -38,13 +38,6 @@ form {
   }
 }
 
-.invisible {
-  position: absolute;
-  overflow: hidden;
-  border: 0;
-  margin: -1px;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  clip: rect(0,0,0,0);
+.breadcrumb ._new{
+  @include float-right;
 }
