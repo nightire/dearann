@@ -1,8 +1,18 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~>4.1'
-gem 'pg'
 gem 'active_model_serializers'
+
+# 数据库
+gem 'pg'
+
+# Web 服务器
+gem 'unicorn'
+
+# 中间件
+gem 'rack-cors', require: 'rack/cors'
+
+# 上传
 gem 'carrierwave'
 
 group :development do
@@ -10,6 +20,7 @@ group :development do
   gem 'spring'
   gem 'awesome_print'
   gem 'interactive_editor'
+  gem 'quiet_assets'
 end
 
 group :test do
@@ -27,4 +38,4 @@ end
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
