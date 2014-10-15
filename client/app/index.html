@@ -7,21 +7,14 @@
   <meta name="description" content="This is Dear Ann's website">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {{BASE_TAG}}
+  {{content-for 'head'}}
 
   <link rel="stylesheet" href="assets/vendor.css">
   <link rel="stylesheet" href="assets/dearann.css">
 </head>
 <body role="application">
-  <script>
-    window.DearannENV = {{ENV}};
-    window.EmberENV = window.DearannENV.EmberENV;
-  </script>
   <script src="//cdn.ckeditor.com/4.4.4/standard/ckeditor.js"></script>
   <script src="assets/vendor.js"></script>
   <script src="assets/dearann.js"></script>
-  <script>
-    window.Dearann = require('dearann/app')['default'].create(DearannENV.APP);
-  </script>
 </body>
 </html>

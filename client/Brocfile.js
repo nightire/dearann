@@ -2,14 +2,12 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var options = {
+var app = new EmberApp({
   compassOptions: {
     require: ['sass-css-importer', 'normalize-scss', 'breakpoint', 'susy'],
     outputStyle: 'expanded'
   }
-};
-
-var app = new EmberApp(options);
+});
 
 app.import('bower_components/moment/min/moment.min.js');
 app.import('bower_components/moment/locale/zh-cn.js');

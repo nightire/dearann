@@ -1,5 +1,6 @@
 import DS from 'ember-data';
+import config from '../config/environment';
 
 export default DS.ActiveModelAdapter.extend({
-  host: 'http://api.very-geek.com'
+  host: config.APP.ADAPTER_HOST
 });
