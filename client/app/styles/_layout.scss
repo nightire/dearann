@@ -3,7 +3,7 @@ footer[role=contentinfo] {
   @include container(100%);
 }
 
-main[role=main] {
+main {
   @include container(1600px);
   @include box-shadow(0 2px 20px 0 rgba(0, 0, 0, 0.67));
   padding-top: $banner-height;

@@ -52,7 +52,7 @@ header[role=banner] {
   }
 }
 
-nav[role=navigation] {
+header[role=banner] nav {
   @include breakpoint(max-width 768px) {
     clear: left;
     padding: { left: 30px; right: 30px }
