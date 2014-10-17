@@ -1,12 +1,11 @@
 {
-  "predef": {
-    "document": true,
-    "window": true,
-    "-Promise": true,
-    "moment": true,
-    "CKEDITOR": true,
-    "DearannENV": true
-  },
+  "predef": [
+    "document",
+    "window",
+    "-Promise",
+    "moment",
+    "CKEDITOR"
+  ],
   "browser" : true,
   "boss" : true,
   "curly": true,

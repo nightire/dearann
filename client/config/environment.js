@@ -7,8 +7,8 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'style-src':   "'self' 'unsafe-inline'",
-      'script-src':  "'self' 'unsafe-eval' localhost:35729 dearann.dev:35729 cdn.ckeditor.com",
+      'style-src':   "'self' 'unsafe-inline' cdn.ckeditor.com",
+      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' localhost:35729 dearann.dev:35729 cdn.ckeditor.com",
       'connect-src': "'self' ws://localhost:35729 ws://dearann.dev:35729 api.dearann.dev:3000 api.very-geek.com"
     },
     EmberENV: {
