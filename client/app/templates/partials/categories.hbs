@@ -1,10 +1,10 @@
 <ul role="menu">
   {{#each categories}}
-  <li role="menuitem">
-    {{link-to name 'posts' (query-params category=urlName) class=urlName}}
-  </li>
+    <li role="menuitem">
+      {{link-to name 'posts' (query-params category=urlName) class=urlName}}
+    </li>
   {{else}}
-  <li>还没有分类哦～</li>
+    <li>还没有分类哦～</li>
   {{/each}}
 </ul>
 {{link-to '查看全部' 'posts' (query-params category='') class='all'}}
